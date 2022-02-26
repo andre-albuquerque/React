@@ -1,25 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const array_numeros = ['1','2','3','4','5','6','7','8','9']
+
+function ListaNumeros(props){
+    const num = props.numeros
+    const lista_numeros = num.map(
+        (n)=> <li key={n.toString()}>{n}</li>        
+    )
+    return(<ul>{lista_numeros}</ul>)
 }
 
-export default App;
+export default function App(){
+    return(
+        <>
+            <ListaNumeros numeros={array_numeros}/>
+        </>
+    )
+}
